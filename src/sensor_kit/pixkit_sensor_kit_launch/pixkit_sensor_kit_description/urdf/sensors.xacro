@@ -1,0 +1,101 @@
+<?xml version="1.0"?>
+<robot name="vehicle" xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:arg name="config_dir" default="$(find pixkit_sensor_kit_description)/config"/>
+  <xacro:property name="calibration" value="${xacro.load_yaml('$(arg config_dir)/sensors_calibration.yaml')}"/>
+
+  <!-- sensor kit -->
+  <xacro:include filename="sensor_kit.xacro"/>
+
+  <xacro:sensor_kit_macro parent="base_link">
+    <origin
+      xyz="${calibration['base_link']['sensor_kit_base_link']['x']}
+           ${calibration['base_link']['sensor_kit_base_link']['y']}
+           ${calibration['base_link']['sensor_kit_base_link']['z']}"
+      rpy="${calibration['base_link']['sensor_kit_base_link']['roll']}
+           ${calibration['base_link']['sensor_kit_base_link']['pitch']}
+           ${calibration['base_link']['sensor_kit_base_link']['yaw']}"
+    />
+  </xacro:sensor_kit_macro>
+
+  <!-- ultrasonic -->
+  <xacro:ultrasonic_0 >
+    <origin
+      xyz="${calibration['base_link']['ultrasonic_0']['x']}
+           ${calibration['base_link']['ultrasonic_0']['y']}
+           ${calibration['base_link']['ultrasonic_0']['z']}"
+      rpy="${calibration['base_link']['ultrasonic_0']['roll']}
+           ${calibration['base_link']['ultrasonic_0']['pitch']}
+           ${calibration['base_link']['ultrasonic_0']['yaw']}"
+    />
+  </xacro:ultrasonic_0>
+  <xacro:ultrasonic_1 >
+    <origin
+      xyz="${calibration['base_link']['ultrasonic_1']['x']}
+           ${calibration['base_link']['ultrasonic_1']['y']}
+           ${calibration['base_link']['ultrasonic_1']['z']}"
+      rpy="${calibration['base_link']['ultrasonic_1']['roll']}
+           ${calibration['base_link']['ultrasonic_1']['pitch']}
+           ${calibration['base_link']['ultrasonic_1']['yaw']}"
+    />
+  </xacro:ultrasonic_1>
+  <xacro:ultrasonic_2 >
+    <origin
+      xyz="${calibration['base_link']['ultrasonic_2']['x']}
+           ${calibration['base_link']['ultrasonic_2']['y']}
+           ${calibration['base_link']['ultrasonic_2']['z']}"
+      rpy="${calibration['base_link']['ultrasonic_2']['roll']}
+           ${calibration['base_link']['ultrasonic_2']['pitch']}
+           ${calibration['base_link']['ultrasonic_2']['yaw']}"
+    />
+  </xacro:ultrasonic_2>
+  <xacro:ultrasonic_3 >
+    <origin
+      xyz="${calibration['base_link']['ultrasonic_3']['x']}
+           ${calibration['base_link']['ultrasonic_3']['y']}
+           ${calibration['base_link']['ultrasonic_3']['z']}"
+      rpy="${calibration['base_link']['ultrasonic_3']['roll']}
+           ${calibration['base_link']['ultrasonic_3']['pitch']}
+           ${calibration['base_link']['ultrasonic_3']['yaw']}"
+    />
+  </xacro:ultrasonic_3>
+  <xacro:ultrasonic_4 >
+    <origin
+      xyz="${calibration['base_link']['ultrasonic_4']['x']}
+           ${calibration['base_link']['ultrasonic_4']['y']}
+           ${calibration['base_link']['ultrasonic_4']['z']}"
+      rpy="${calibration['base_link']['ultrasonic_4']['roll']}
+           ${calibration['base_link']['ultrasonic_4']['pitch']}
+           ${calibration['base_link']['ultrasonic_4']['yaw']}"
+    />
+  </xacro:ultrasonic_4>
+  <xacro:ultrasonic_5 >
+    <origin
+      xyz="${calibration['base_link']['ultrasonic_5']['x']}
+           ${calibration['base_link']['ultrasonic_5']['y']}
+           ${calibration['base_link']['ultrasonic_5']['z']}"
+      rpy="${calibration['base_link']['ultrasonic_5']['roll']}
+           ${calibration['base_link']['ultrasonic_5']['pitch']}
+           ${calibration['base_link']['ultrasonic_5']['yaw']}"
+    />
+  </xacro:ultrasonic_5>
+  <xacro:ultrasonic_6 >
+    <origin
+      xyz="${calibration['base_link']['ultrasonic_6']['x']}
+           ${calibration['base_link']['ultrasonic_6']['y']}
+           ${calibration['base_link']['ultrasonic_6']['z']}"
+      rpy="${calibration['base_link']['ultrasonic_6']['roll']}
+           ${calibration['base_link']['ultrasonic_6']['pitch']}
+           ${calibration['base_link']['ultrasonic_6']['yaw']}"
+    />
+  </xacro:ultrasonic_6>
+  <xacro:ultrasonic_7 >
+    <origin
+      xyz="${calibration['base_link']['ultrasonic_7']['x']}
+           ${calibration['base_link']['ultrasonic_7']['y']}
+           ${calibration['base_link']['ultrasonic_7']['z']}"
+      rpy="${calibration['base_link']['ultrasonic_7']['roll']}
+           ${calibration['base_link']['ultrasonic_7']['pitch']}
+           ${calibration['base_link']['ultrasonic_7']['yaw']}"
+    />
+  </xacro:ultrasonic_7>
+</robot>

@@ -1,0 +1,33 @@
+<launch>
+  <arg name="use_left_lidar"                  default="true"/>
+  <arg name="use_right_lidar"                 default="true"/>
+  
+  <arg name="left_lidar_param"                default="lslidar_c32_1.yaml" />
+  <arg name="right_lidar_param"               default="lslidar_c32_2.yaml" />
+
+  <!-- Lidar sensor -->
+  <group if="$(var use_left_lidar)">
+    <push-ros-namespace namespace="left_lidar"/>
+    <include file="$(find-pkg-share lslidar_driver)/launch/lslidar_c32_launch.py">
+      <arg name="params_file" value="$(find-pkg-share lslidar_driver)/params/$(var left_lidar_param)"/>
+    </include>
+  </group>
+
+  <group if="$(var use_right_lidar)">
+    <push-ros-namespace namespace="right_lidar"/>
+    <include file="$(find-pkg-share lslidar_driver)/launch/lslidar_c32_launch.py">
+      <arg name="params_file" value="$(find-pkg-share lslidar_driver)/params/$(var right_lidar_param)"/>
+    </include>
+  </group>
+  
+  <!-- Preprocessing -->
+  <node pkg="autoware_pointcloud_preprocessor" exec="concatenate_data_node" name="concatenate_data_node" output="screen">
+    <param name="output_frame" value="base_link"/>
+    <param name="input_topics" 
+            value="[
+                    'left_lidar/pointcloud',
+                    'right_lidar/pointcloud'
+                  ]"/>
+    <remap from="output" to="concatenated/pointcloud" />
+  </node>
+</launch>

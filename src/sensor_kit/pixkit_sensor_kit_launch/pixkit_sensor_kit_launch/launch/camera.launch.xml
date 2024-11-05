@@ -1,0 +1,34 @@
+<launch>
+  <arg name="launch_driver" default="true"/>
+  <arg name="camera_type" default="flir_camera"/>
+  <!-- <arg name="camera_type" default="flir_camera"/> -->
+
+  <!-- CAMERA DEIVER -->
+    <group if="$(eval &quot;'$(var camera_type)'=='flir_camera'&quot;)">
+      <push-ros-namespace namespace="camera/top"/>
+      <include file="$(find-pkg-share pixkit_sensor_kit_launch)/launch/camera/spinnaker_camera_driver.launch.py" if="$(var launch_driver)" />
+    </group>
+
+
+    <!--<group if="$(eval &quot;'$(var camera_type)'=='gmsl'&quot;)">
+      <push-ros-namespace namespace="camera"/>
+      <include file="$(find-pkg-share pixkit_sensor_kit_launch)/launch/camera/camera_gmsl_top.launch.py" if="$(var launch_driver)" />
+    </group>-->
+    <!-- <group>
+      <push-ros-namespace namespace="traffic_light"/>
+      <node pkg="topic_tools" exec="relay" name="tl_camera_info_relay" output="log">
+        <param name="input_topic" value="$(var camera_type)/camera_info"/>
+        <param name="output_topic" value="camera_info"/>
+        <param name="type" value="sensor_msgs/msg/CameraInfo"/>
+        <param name="reliability" value="best_effort"/>
+      </node>
+
+      <node pkg="topic_tools" exec="relay" name="tl_compressed_image_relay" output="log">
+        <param name="input_topic" value="$(var camera_type)/image_raw/compressed"/>
+        <param name="output_topic" value="image_raw/compressed"/>
+        <param name="type" value="sensor_msgs/msg/CompressedImage"/>
+        <param name="reliability" value="best_effort"/>
+      </node>
+    </group> -->
+    
+</launch>

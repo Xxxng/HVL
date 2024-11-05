@@ -1,0 +1,44 @@
+<launch>
+  <arg name="launch_driver" default="true" description="do launch driver"/>
+
+  <arg name="launch_camera"             default="false"/>
+  <arg name="launch_lidar"              default="false"/>
+  <arg name="launch_gnss"               default="true"/>
+  <arg name="launch_radar"              default="false"/>
+  <arg name="launch_imu"                default="true"/>
+
+  <arg name="vehicle_mirror_param_file" description="path to the file of vehicle mirror position yaml"/>
+  <arg name="pointcloud_container_name" default="pointcloud_container"/>
+  <arg name="vehicle_id" default="$(env VEHICLE_ID default)"/>
+
+  <group>
+    <group if="$(var launch_camera)">
+      <!-- Camera Driver -->
+    </group>
+
+    <group if="$(var launch_lidar)">
+      <push-ros-namespace namespace="lidar"/>
+      <include file="$(find-pkg-share fodro_1_sensor_kit_launch)/launch/lidar.launch.xml">
+      </include>
+    </group>
+
+    <group if="$(var launch_gnss)">
+      <push-ros-namespace namespace="gnss"/>
+      <include file="$(find-pkg-share fodro_1_sensor_kit_launch)/launch/gnss.launch.xml"/>
+    </group>
+    <group if="$(var launch_radar)">
+      <push-ros-namespace namespace="radar"/>
+      <include file="$(find-pkg-share fodro_1_sensor_kit_launch)/launch/radar.launch.xml"/>
+    </group>
+    <group if="$(var launch_imu)">
+      <push-ros-namespace namespace="imu"/>
+      <include file="$(find-pkg-share fodro_1_sensor_kit_launch)/launch/imu.launch.xml"/>
+    </group>
+
+    <!-- Vehicle Velocity Converter  -->
+    <include file="$(find-pkg-share vehicle_velocity_converter)/launch/vehicle_velocity_converter.launch.xml">
+      <arg name="input_vehicle_velocity_topic" value="/vehicle/status/velocity_status"/>
+      <arg name="output_twist_with_covariance" value="/sensing/vehicle_velocity_converter/twist_with_covariance"/>
+    </include>
+  </group>
+</launch>

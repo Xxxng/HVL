@@ -1,0 +1,29 @@
+<launch>
+  <arg name="launch_driver" default="true"/>
+
+  <group>
+    <push-ros-namespace namespace="imu"/>
+
+    <!-- <group>
+      <push-ros-namespace namespace="ouster"/>
+      <node pkg="topic_tools" exec="relay" name="imu_relay" output="log">
+        <param name="input_topic" value="/sensing/gnss/chc/imu"/>
+        <param name="output_topic" value="imu_raw"/>
+        <param name="type" value="sensor_msgs/msg/Imu"/>
+        <param name="reliability" value="best_effort"/>
+      </node>
+    </group> -->
+    <arg name="imu_corrector_param_file" default="$(env HOME)/pix/parameter/vehicle/sensor_kit/pixkit_sensor_kit_description/intrinsic_parameters/imu_corrector.param.yaml"/>
+    <include file="$(find-pkg-share imu_corrector)/launch/imu_corrector.launch.xml">
+      <arg name="input_topic" value="/sensing/gnss/chc/imu"/>
+      <arg name="output_topic" value="imu_data"/>
+      <arg name="param_file" value="$(var imu_corrector_param_file)"/>
+    </include>
+
+    <!-- <include file="$(find-pkg-share imu_corrector)/launch/gyro_bias_estimator.launch.xml">
+      <arg name="input_imu_raw" value="/sensing/gnss/chc/imu"/>
+      <arg name="input_twist" value="/localization/kinematic_state"/>
+      <arg name="imu_corrector_param_file" value="$(var imu_corrector_param_file)"/>
+    </include> -->
+  </group>
+</launch>

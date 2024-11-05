@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:macro name="static_joint_macro" params="parent link_name x y z roll pitch yaw">
+
+  <joint name="${link_name}_joint" type="fixed">
+    <origin rpy="${roll} ${pitch} ${yaw}" xyz="${x} ${y} ${z}"/>
+    <parent link="${parent}"/>
+    <child link="${link_name}"/>
+  </joint>
+  <link name="${link_name}">
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+  </link>
+
+  </xacro:macro>
+</robot>

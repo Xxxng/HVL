@@ -1,0 +1,25 @@
+# colcon
+HVL/build/
+HVL/install/
+HVL/log/
+rosbag2*
+# Visual Studio Code
+.vscode/
+*.code-workspace
+
+# Python
+*.pyc
+
+# Vim
+*.swp
+*.swo
+
+#tensorrt
+*.onnx
+*.names
+
+
+# c++
+*.o
+*.d
+*.dpp

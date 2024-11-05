@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:macro name="sensors_gnss_base_macro" params="parent">
+    <xacro:include filename="static_joint.xacro"/>
+    <xacro:arg name="config_dir" default="$(find fodro_1_sensor_kit_description)/config"/>
+    <xacro:property name="gnss_base_data" value="${xacro.load_yaml('$(arg config_dir)/sensors_gnss_base.yaml')}"/>
+
+  <xacro:static_joint_macro
+    parent="${parent}"
+    link_name="gnss_left_antenna_link"
+    x="${gnss_base_data['gnss_base_link']['gnss_left_antenna_link']['x']}"
+    y="${gnss_base_data['gnss_base_link']['gnss_left_antenna_link']['y']}"
+    z="${gnss_base_data['gnss_base_link']['gnss_left_antenna_link']['z']}"
+    roll="${gnss_base_data['gnss_base_link']['gnss_left_antenna_link']['roll']}"
+    pitch="${gnss_base_data['gnss_base_link']['gnss_left_antenna_link']['pitch']}"
+    yaw="${gnss_base_data['gnss_base_link']['gnss_left_antenna_link']['yaw']}"
+  />
+  
+  <xacro:static_joint_macro
+    parent="${parent}"
+    link_name="gnss_right_antenna_link"
+    x="${gnss_base_data['gnss_base_link']['gnss_right_antenna_link']['x']}"
+    y="${gnss_base_data['gnss_base_link']['gnss_right_antenna_link']['y']}"
+    z="${gnss_base_data['gnss_base_link']['gnss_right_antenna_link']['z']}"
+    roll="${gnss_base_data['gnss_base_link']['gnss_right_antenna_link']['roll']}"
+    pitch="${gnss_base_data['gnss_base_link']['gnss_right_antenna_link']['pitch']}"
+    yaw="${gnss_base_data['gnss_base_link']['gnss_right_antenna_link']['yaw']}"
+  />
+ 
+  </xacro:macro>
+</robot>

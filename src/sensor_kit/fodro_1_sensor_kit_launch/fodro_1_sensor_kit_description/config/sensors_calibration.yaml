@@ -1,0 +1,57 @@
+
+base_link:
+  rear_wheel_link:
+    x: 0.0
+    y: 0.0
+    z: 0.30
+    roll: 0.0
+    pitch: 0.0
+    yaw: 0.0
+  
+
+rear_wheel_link:
+  front_wheel_link:
+    x: 2.65
+    y: 0.0
+    z: 0.00
+    roll: 0
+    pitch: 0
+    yaw: 0
+  rear_left_wheel_link:
+    x: 0.0
+    y: 0.80
+    z: 0.0
+    roll: 0
+    pitch: 0
+    yaw: 0
+  rear_right_wheel_link:
+    x: 0.0
+    y: -0.80
+    z: 0.0
+    roll: 0
+    pitch: 0
+    yaw: 0
+
+  gnss_base_link:
+    x: -0.61
+    y: 0
+    z: 1.25
+    roll: 0
+    pitch: 0
+    yaw: 0
+
+front_wheel_link:
+  front_left_wheel_link:
+    x: 0.0
+    y: 0.80
+    z: 0.0
+    roll: 0
+    pitch: 0
+    yaw: 0
+  front_right_wheel_link:
+    x: 0.0
+    y: -0.80
+    z: 0.0
+    roll: 0
+    pitch: 0
+    yaw: 0

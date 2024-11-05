@@ -1,0 +1,6 @@
+<launch>
+  <arg name="launch_driver" default="true"/>
+  
+  <include file="$(find-pkg-share pixkit_sensor_kit_launch)/launch/radar/ultra_sonic_radar_driver.launch.xml"/>
+  <include file="$(find-pkg-share pixkit_sensor_kit_launch)/launch/radar/ultra_sonic_radar_detector.launch.py"/>
+</launch>

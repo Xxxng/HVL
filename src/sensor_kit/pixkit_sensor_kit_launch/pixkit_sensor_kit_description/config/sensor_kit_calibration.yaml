@@ -1,0 +1,71 @@
+sensor_kit_base_link:
+# camera
+  traffic_light_left_camera:
+    x: 1.080
+    y: 0.173
+    z: -0.016
+    roll: -1.572
+    pitch: -0.017
+    yaw: -1.590
+  zed:
+    x: 0.787
+    y: -0.031
+    z: 1.065
+    roll: 0.008
+    pitch: 0.292
+    yaw: 0.020
+# combined navigation
+  gnss:
+    x: -0.37
+    y: 0.0
+    z: 0.18
+    roll: 0.0
+    pitch: 0.0
+    yaw: 0.0
+
+# lidar
+  # The laser coordinate system is the y-axis toward the front of the car.
+  laser_top_base_link:
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    roll: 0.0
+    pitch: 0.0
+    yaw: -1.57
+  rs16_top_base_link:
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    roll: 0.0
+    pitch: 0.0
+    yaw: 0.0
+  ouster_top_base_link:
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    roll: 0.0
+    pitch: 0.0
+    yaw: 0.0
+  rsbp_front_base_link:
+    x: 0.786
+    y: -0.006
+    z: 0.582  
+    roll: 0.518
+    pitch: 1.351
+    yaw: 0.549
+
+# millimeter wave
+  front_radar:
+    x: 1.2
+    y: 0.0
+    z: 0.0
+    roll: 0.0
+    pitch: 0.0
+    yaw: 0.0
+  rear_radar:
+    x: -1.2
+    y: 0.0
+    z: 0.0
+    roll: 0.0
+    pitch: 0.0
+    yaw: 3.1416

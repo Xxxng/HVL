@@ -1,0 +1,83 @@
+
+front_wheel_link:
+  lidar_link:
+    x: -0.27
+    y: 0.0
+    z: 0.57
+    roll: 0.0
+    pitch: 0.0
+    yaw: 0.055
+    
+    left_lidar_link:
+      x: 0.0     
+      y: 0.92
+      z: 0.0
+      roll: 0.0
+      pitch: -0.01
+      yaw: 3.0750926
+
+      right_lidar_link:
+        x: 0.0606078
+        y: 1.80406
+        z: -0.0168705
+        roll: -0.0024128
+        pitch: 0.0183152
+        yaw: 3.11332
+
+    center_camera_link:
+      x: -0.02
+      y: 0.0
+      z: 0.73
+      roll: 0
+      pitch: 0
+      yaw: 0
+    left_camera_link:
+      x: -0.14
+      y: 0.70
+      z: 0.73
+      roll: 0
+      pitch: 0
+      yaw: 0.7853982
+    right_camera_link:
+      x: -0.14
+      y: -0.70
+      z: 0.73
+      roll: 0
+      pitch: 0
+      yaw: -0.7853982
+    fod_left_camera_link:
+      x: -0.585
+      y: 0.375
+      z: 0.97
+      roll: 0
+      pitch: 0
+      yaw: 0
+    fod_right_camera_link:
+      x: -0.585
+      y: -0.375
+      z: 0.97
+      roll: 0
+      pitch: 0
+      yaw: 0
+  imu_link:
+    x: -0.74
+    y: -0.54
+    z: 0.17
+    roll: 0
+    pitch: 0
+    yaw: 0
+  radar_link:
+    x: 0.53
+    y: 0.0
+    z: 0.09
+    roll: 0
+    pitch: 0
+    yaw: 0
+
+  fod_radar_link:
+    x: 2.0
+    y: 0
+    z: 0.51
+    roll: 0
+    pitch: 0
+    yaw: 0

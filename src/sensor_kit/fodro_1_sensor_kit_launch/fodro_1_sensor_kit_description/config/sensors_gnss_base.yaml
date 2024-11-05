@@ -1,0 +1,16 @@
+
+gnss_base_link:
+  gnss_left_antenna_link:
+    x: -0.0
+    y: 0.80
+    z: 0.0
+    roll: 0
+    pitch: 0
+    yaw: 0
+  gnss_right_antenna_link:
+    x: -0.0
+    y: -0.80
+    z: 0.0
+    roll: 0
+    pitch: 0
+    yaw: 0

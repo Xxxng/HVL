@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+<robot name="vehicle" xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:include filename="static_joint.xacro"/>
+  <xacro:include filename="sensors_front_wheel.xacro"/>
+  <xacro:include filename="sensors_gnss_base.xacro"/>
+  <xacro:arg name="config_dir" default="$(find fodro_1_sensor_kit_description)/config"/>
+  <xacro:property name="calibration" value="${xacro.load_yaml('$(arg config_dir)/sensors_calibration.yaml')}"/>
+  
+  <xacro:sensors_front_wheel_macro
+    parent="front_wheel_link"
+  />
+  <xacro:sensors_gnss_base_macro
+    parent="gnss_base_link"
+  />
+
+  <!-- base_link -->
+  <xacro:static_joint_macro
+    parent="base_link"
+    link_name="rear_wheel_link"
+    x="${calibration['base_link']['rear_wheel_link']['x']}"
+    y="${calibration['base_link']['rear_wheel_link']['y']}"
+    z="${calibration['base_link']['rear_wheel_link']['z']}"
+    roll="${calibration['base_link']['rear_wheel_link']['roll']}"
+    pitch="${calibration['base_link']['rear_wheel_link']['pitch']}"
+    yaw="${calibration['base_link']['rear_wheel_link']['yaw']}"
+  />
+  
+  <xacro:static_joint_macro
+    parent="rear_wheel_link"
+    link_name="front_wheel_link"
+    x="${calibration['rear_wheel_link']['front_wheel_link']['x']}"
+    y="${calibration['rear_wheel_link']['front_wheel_link']['y']}"
+    z="${calibration['rear_wheel_link']['front_wheel_link']['z']}"
+    roll="${calibration['rear_wheel_link']['front_wheel_link']['roll']}"
+    pitch="${calibration['rear_wheel_link']['front_wheel_link']['pitch']}"
+    yaw="${calibration['rear_wheel_link']['front_wheel_link']['yaw']}"
+  />
+
+  <!-- front_wheel_link -->
+  <xacro:static_joint_macro
+    parent="front_wheel_link"
+    link_name="front_left_wheel_link"
+    x="${calibration['front_wheel_link']['front_left_wheel_link']['x']}"
+    y="${calibration['front_wheel_link']['front_left_wheel_link']['y']}"
+    z="${calibration['front_wheel_link']['front_left_wheel_link']['z']}"
+    roll="${calibration['front_wheel_link']['front_left_wheel_link']['roll']}"
+    pitch="${calibration['front_wheel_link']['front_left_wheel_link']['pitch']}"
+    yaw="${calibration['front_wheel_link']['front_left_wheel_link']['yaw']}"
+  />
+  <xacro:static_joint_macro
+    parent="front_wheel_link"
+    link_name="front_right_wheel_link"
+    x="${calibration['front_wheel_link']['front_right_wheel_link']['x']}"
+    y="${calibration['front_wheel_link']['front_right_wheel_link']['y']}"
+    z="${calibration['front_wheel_link']['front_right_wheel_link']['z']}"
+    roll="${calibration['front_wheel_link']['front_right_wheel_link']['roll']}"
+    pitch="${calibration['front_wheel_link']['front_right_wheel_link']['pitch']}"
+    yaw="${calibration['front_wheel_link']['front_right_wheel_link']['yaw']}"
+  />
+
+  <!-- rear_wheel_link -->
+  <xacro:static_joint_macro
+    parent="rear_wheel_link"
+    link_name="rear_left_wheel_link"
+    x="${calibration['rear_wheel_link']['rear_left_wheel_link']['x']}"
+    y="${calibration['rear_wheel_link']['rear_left_wheel_link']['y']}"
+    z="${calibration['rear_wheel_link']['rear_left_wheel_link']['z']}"
+    roll="${calibration['rear_wheel_link']['rear_left_wheel_link']['roll']}"
+    pitch="${calibration['rear_wheel_link']['rear_left_wheel_link']['pitch']}"
+    yaw="${calibration['rear_wheel_link']['rear_left_wheel_link']['yaw']}"
+  />
+  <xacro:static_joint_macro
+    parent="rear_wheel_link"
+    link_name="rear_right_wheel_link"
+    x="${calibration['rear_wheel_link']['rear_right_wheel_link']['x']}"
+    y="${calibration['rear_wheel_link']['rear_right_wheel_link']['y']}"
+    z="${calibration['rear_wheel_link']['rear_right_wheel_link']['z']}"
+    roll="${calibration['rear_wheel_link']['rear_right_wheel_link']['roll']}"
+    pitch="${calibration['rear_wheel_link']['rear_right_wheel_link']['pitch']}"
+    yaw="${calibration['rear_wheel_link']['rear_right_wheel_link']['yaw']}"
+  />
+
+  <xacro:static_joint_macro
+    parent="rear_wheel_link"
+    link_name="gnss_base_link"
+    x="${calibration['rear_wheel_link']['gnss_base_link']['x']}"
+    y="${calibration['rear_wheel_link']['gnss_base_link']['y']}"
+    z="${calibration['rear_wheel_link']['gnss_base_link']['z']}"
+    roll="${calibration['rear_wheel_link']['gnss_base_link']['roll']}"
+    pitch="${calibration['rear_wheel_link']['gnss_base_link']['pitch']}"
+    yaw="${calibration['rear_wheel_link']['gnss_base_link']['yaw']}"
+  />
+
+  
+</robot>
