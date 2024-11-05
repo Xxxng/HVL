@@ -1,7 +1,7 @@
 # colcon
-HVL/build/
-HVL/install/
-HVL/log/
+build/
+install/
+log/
 rosbag2*
 # Visual Studio Code
 .vscode/
