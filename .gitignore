@@ -2,6 +2,10 @@
 build/
 install/
 log/
+<<<<<<< HEAD
+=======
+
+>>>>>>> 2e5a05f (rename: HVL to hvl)
 rosbag2*
 # Visual Studio Code
 .vscode/
