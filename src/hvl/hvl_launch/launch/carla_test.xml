@@ -4,7 +4,7 @@
   <arg name="use_sim_time" default="true" description="use simulation time"/>
   <arg name="map_path" default="$(env HOME)/autoware_map/Town01" description="point cloud and lanelet2 map directory path"/>
   <arg name="vehicle_model" default="sample_vehicle" description="vehicle model name"/>
-  <arg name="sensor_model" default="single_lidar_sensor_kit_launch" description="sensor model name"/>
+  <arg name="sensor_model" default="sample_sensor_kit" description="sensor model name"/>
   <arg name="data_path" default="$(env HOME)/autoware_data" description="packages data and artifacts directory path"/>
   <arg name="simulator_type" default="carla" description="select the simulator type ('awsim' or 'carla')"/>
 
