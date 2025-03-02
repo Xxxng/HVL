@@ -16,7 +16,7 @@
   <let name="rviz_initial_pose_auto_fix_target" value="vector_map"/>
   <let name="gnss_initial_pose_auto_fix_target" value="vector_map"/>
   <!-- System -->
-  <arg name="launch_dummy_doors" default="true" description="launch dummy doors simulation"/>
+  <arg name="launch_dummy_doors" default="false" description="launch dummy doors simulation"/>
   <arg name="launch_system_monitor" default="false" description="launch system monitor"/>
   <arg name="launch_dummy_diag_publisher" default="false" description="launch dummy diag publisher"/>
   <!-- Scenario simulation -->

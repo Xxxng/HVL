@@ -5,6 +5,7 @@
   <version>0.1.0</version>
   <description>The pixkit_sensor_kit_launch package</description>
   <maintainer email="dutjdgns@gmail.com">Seonghun Yeo</maintainer>
+  <license>Apache License 2.0</license>
 
   <buildtool_depend>ament_cmake_auto</buildtool_depend>
 
@@ -13,6 +14,7 @@
   <exec_depend>topic_tools</exec_depend>
   <exec_depend>rslidar_sdk</exec_depend>
   <exec_depend>usb_cam</exec_depend>
+  
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>autoware_lint_common</test_depend>
 

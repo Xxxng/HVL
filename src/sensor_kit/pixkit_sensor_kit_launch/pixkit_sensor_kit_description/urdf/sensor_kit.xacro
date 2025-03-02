@@ -21,26 +21,11 @@
     
     <link name="camera_top_link" />
     <link name="gnss" />
-    <link name="laser_top_base_link" />
     <link name="rs16_top_base_link" />
-    <link name="ouster_top_base_link" />
-    <link name="rsbp_front_base_link" />
     <link name="front_radar" />
     <link name="rear_radar" />
     
     <!-- lidar -->
-    <joint name="laser_top_base_link_joint" type="fixed">
-      <parent link="sensor_kit_base_link" />
-      <child link="laser_top_base_link" />
-      <origin 
-        xyz="${calibration['sensor_kit_base_link']['laser_top_base_link']['x']} 
-             ${calibration['sensor_kit_base_link']['laser_top_base_link']['y']} 
-             ${calibration['sensor_kit_base_link']['laser_top_base_link']['z']}" 
-        rpy="${calibration['sensor_kit_base_link']['laser_top_base_link']['roll']} 
-             ${calibration['sensor_kit_base_link']['laser_top_base_link']['pitch']} 
-             ${calibration['sensor_kit_base_link']['laser_top_base_link']['yaw']}" />
-    </joint>
-
     <joint name="rs16_top_base_link_joint" type="fixed">
       <parent link="sensor_kit_base_link" />
       <child link="rs16_top_base_link" />
@@ -53,41 +38,17 @@
              ${calibration['sensor_kit_base_link']['rs16_top_base_link']['yaw']}" />
     </joint>
 
-    <joint name="ouster_top_base_link_joint" type="fixed">
-      <parent link="sensor_kit_base_link" />
-      <child link="ouster_top_base_link" />
-      <origin 
-        xyz="${calibration['sensor_kit_base_link']['ouster_top_base_link']['x']} 
-             ${calibration['sensor_kit_base_link']['ouster_top_base_link']['y']} 
-             ${calibration['sensor_kit_base_link']['ouster_top_base_link']['z']}" 
-        rpy="${calibration['sensor_kit_base_link']['ouster_top_base_link']['roll']} 
-             ${calibration['sensor_kit_base_link']['ouster_top_base_link']['pitch']} 
-             ${calibration['sensor_kit_base_link']['ouster_top_base_link']['yaw']}" />
-    </joint>
-
-    <joint name="rsbp_front_base_link_joint" type="fixed">
-      <parent link="sensor_kit_base_link" />
-      <child link="rsbp_front_base_link" />
-      <origin 
-        xyz="${calibration['sensor_kit_base_link']['rsbp_front_base_link']['x']} 
-             ${calibration['sensor_kit_base_link']['rsbp_front_base_link']['y']} 
-             ${calibration['sensor_kit_base_link']['rsbp_front_base_link']['z']}" 
-        rpy="${calibration['sensor_kit_base_link']['rsbp_front_base_link']['roll']} 
-             ${calibration['sensor_kit_base_link']['rsbp_front_base_link']['pitch']} 
-             ${calibration['sensor_kit_base_link']['rsbp_front_base_link']['yaw']}" />
-    </joint>
-
     <!-- camera -->
     <joint name="camera_top_link_joint" type="fixed">
-      <parent link="ouster_top_base_link" />
+      <parent link="sensor_kit_base_link" />
       <child link="camera_top_link" />
       <origin 
-        xyz="${calibration['ouster_top_base_link']['camera_top_link']['x']} 
-             ${calibration['ouster_top_base_link']['camera_top_link']['y']} 
-             ${calibration['ouster_top_base_link']['camera_top_link']['z']}" 
-        rpy="${calibration['ouster_top_base_link']['camera_top_link']['roll']} 
-             ${calibration['ouster_top_base_link']['camera_top_link']['pitch']} 
-             ${calibration['ouster_top_base_link']['camera_top_link']['yaw']}" />
+        xyz="${calibration['sensor_kit_base_link']['camera_top_link']['x']} 
+             ${calibration['sensor_kit_base_link']['camera_top_link']['y']} 
+             ${calibration['sensor_kit_base_link']['camera_top_link']['z']}" 
+        rpy="${calibration['sensor_kit_base_link']['camera_top_link']['roll']} 
+             ${calibration['sensor_kit_base_link']['camera_top_link']['pitch']} 
+             ${calibration['sensor_kit_base_link']['camera_top_link']['yaw']}" />
     </joint>
 
     <!-- gnss -->
@@ -130,79 +91,5 @@
              ${calibration['sensor_kit_base_link']['rear_radar']['yaw']}" />
     </joint>
 
-  </xacro:macro>
-
-  <!-- ultrasonic radar -->
-  <link name="ultrasonic_0" />
-  <link name="ultrasonic_1" />
-  <link name="ultrasonic_2" />
-  <link name="ultrasonic_3" />
-  <link name="ultrasonic_4" />
-  <link name="ultrasonic_5" />
-  <link name="ultrasonic_6" />
-  <link name="ultrasonic_7" />
-
-  <xacro:macro name="ultrasonic_0" params="*ultrasonic_origin parent=sensor_kit_base_link" >
-    <joint name="ultrasonic_0_joint" type="fixed">
-      <xacro:insert_block name="ultrasonic_origin"/>
-      <parent link="${parent}"/>
-      <child link="ultrasonic_0"/>
-    </joint>
-  </xacro:macro>
-
-  <xacro:macro name="ultrasonic_1" params="*ultrasonic_origin parent=sensor_kit_base_link" >
-    <joint name="ultrasonic_1_joint" type="fixed">
-      <xacro:insert_block name="ultrasonic_origin"/>
-      <parent link="${parent}"/>
-      <child link="ultrasonic_1"/>
-    </joint>
-  </xacro:macro>
-
-  <xacro:macro name="ultrasonic_2" params="*ultrasonic_origin parent=sensor_kit_base_link" >
-    <joint name="ultrasonic_2_joint" type="fixed">
-      <xacro:insert_block name="ultrasonic_origin"/>
-      <parent link="${parent}"/>
-      <child link="ultrasonic_2"/>
-    </joint>
-  </xacro:macro>
-
-  <xacro:macro name="ultrasonic_3" params="*ultrasonic_origin parent=sensor_kit_base_link" >
-    <joint name="ultrasonic_3_joint" type="fixed">
-      <xacro:insert_block name="ultrasonic_origin"/>
-      <parent link="${parent}"/>
-      <child link="ultrasonic_3"/>
-    </joint>
-  </xacro:macro>
-
-  <xacro:macro name="ultrasonic_4" params="*ultrasonic_origin parent=sensor_kit_base_link" >
-    <joint name="ultrasonic_4_joint" type="fixed">
-      <xacro:insert_block name="ultrasonic_origin"/>
-      <parent link="${parent}"/>
-      <child link="ultrasonic_4"/>
-    </joint>
-  </xacro:macro>
-
-  <xacro:macro name="ultrasonic_5" params="*ultrasonic_origin parent=sensor_kit_base_link" >
-    <joint name="ultrasonic_5_joint" type="fixed">
-      <xacro:insert_block name="ultrasonic_origin"/>
-      <parent link="${parent}"/>
-      <child link="ultrasonic_5"/>
-    </joint>
-  </xacro:macro>
-
-  <xacro:macro name="ultrasonic_6" params="*ultrasonic_origin parent=sensor_kit_base_link" >
-    <joint name="ultrasonic_6_joint" type="fixed">
-      <xacro:insert_block name="ultrasonic_origin"/>
-      <parent link="${parent}"/>
-      <child link="ultrasonic_6"/>
-    </joint>
-  </xacro:macro>
-
-  <xacro:macro name="ultrasonic_7" params="*ultrasonic_origin parent=sensor_kit_base_link" >
-    <joint name="ultrasonic_7_joint" type="fixed">
-      <xacro:insert_block name="ultrasonic_origin"/>
-      <parent link="${parent}"/>
-      <child link="ultrasonic_7"/>
-    </joint>
   </xacro:macro>
 </robot>
